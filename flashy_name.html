@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suresh Gehlot in Flashy Lights</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .name {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: colorChange 5s infinite;
+        }
+        .letter {
+            display: inline-block;
+            animation: pulse 0.5s infinite alternate;
+        }
+        @keyframes colorChange {
+            0% { color: #ff0000; }
+            25% { color: #00ff00; }
+            50% { color: #0000ff; }
+            75% { color: #ffff00; }
+            100% { color: #ff00ff; }
+        }
+        @keyframes pulse {
+            from { transform: scale(1); text-shadow: 0 0 10px currentColor; }
+            to { transform: scale(1.1); text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        }
+    </style>
+</head>
+<body>
+    <div class="name" id="flashyName"></div>
+
+    <script>
+        const name = "Suresh Gehlot";
+        const flashyName = document.getElementById('flashyName');
+
+        name.split('').forEach((letter, index) => {
+            const span = document.createElement('span');
+            span.textContent = letter;
+            span.classList.add('letter');
+            span.style.animationDelay = `${index * 0.1}s`;
+            flashyName.appendChild(span);
+        });
+    </script>
+</body>
+</html>
